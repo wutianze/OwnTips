@@ -1,5 +1,5 @@
-# 通过读写地址来控制地层硬件：  
-- 需要include的头文件：
+# 通过读写物理地址来控制地层硬件：  
+- 需要include的头文件(for linux)：
 ```c++
 #include<stdio.h>
 #include<fcntl.h>
