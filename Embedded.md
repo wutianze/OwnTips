@@ -1,15 +1,15 @@
-# 通过读写物理地址来控制地层硬件：  
-- 需要include的头文件(for linux)：
+# Read & Write physical memory address to control the hardware:
+- head files needed(for linux):
 ```c++
 #include<stdio.h>
 #include<fcntl.h>
 #include<sys/mman.h>
 ```
-- 用法：
+- How to use:
 ```c++
-int fd = open("/dev/mem",O_RDWR);//将物理内存映射
-throttle = (int*)mmap(0, 30, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0x42800000);
-throttle[4] = 0b001010010110;//写入值：按位0b*，16进制0x*，一个int一般为16bit即4个byte
+int fd = open("/dev/mem",O_RDWR);
+throttle = (int*)mmap(0, 30, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0x42800000);// map hardware address 0x42800000 to virtual mem, bytes length 30, used as int*
+throttle[4] = 0b001010010110;//write in value: as bit:0b*, hexadecimal number:0x*, one int is usually 16bit=4 bytes
 throttle[0] = 0xFFFF;
 throttle[1] = 500000;
 ```
