@@ -1,0 +1,27 @@
+# 有时需要root权限运行程序并通过X11转发来看图像
+1. 修改 root 密码
+```shell
+sudo passwd root
+```
+2. 修改配置文件
+```shell
+sudo vi /etc/ssh/sshd_config
+```
+找到下面相关配置：
+```shell
+# Authentication:
+LoginGraceTime 120
+PermitRootLogin prohibit-password
+StrictModes yes
+更改为：
+```shell
+# Authentication:
+LoginGraceTime 120
+#PermitRootLogin prohibit-password
+PermitRootLogin yes
+StrictModes yes
+```shell
+3. 重启ssh
+```shell
+sudo service ssh restart
+```shell
