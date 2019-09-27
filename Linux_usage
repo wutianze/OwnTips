@@ -29,5 +29,5 @@ sudo service ssh restart
 ## Tip: or you can just run 
 ```shell
 #su  
-#xauth merge /home/huyle/.Xauthority
+#xauth merge /home/yourname/.Xauthority
 ```
