@@ -28,6 +28,7 @@ sudo service ssh restart
 ```shell
 ## Tip: or you can just run 
 ```shell
-#su  
-#xauth merge /home/yourname/.Xauthority
+su  
+xauth merge /home/yourname/.Xauthority
+# then run the program in su mode
 ```
